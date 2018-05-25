@@ -32,6 +32,10 @@ return [
 php yii migrate
 ~~~
 
+~~~
+php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations
+~~~
+
 ### Seeder
 ~~~
 php yii seed
@@ -55,12 +59,14 @@ http://localhost/ or http://localhost:8080/
 INSTRUCTIONS
 ------------
 1. Register as user
-2. To see activation email / forgot password / confirmation message goto Yii Profiler in right bottom corner > click 'Mail' tab
+2. To see activation email / forgot password / confirmation message goto Yii Profiler (development mode) in right bottom corner > click 'Mail' tab
 3. Login as the registered user
 4. Goto the 'Places' link in nav bar
 5. You can see place and country. Sort / search each of them and the list will be ordered by country name
 6. Can perform create / update / delete actions for Tour / Place / Country
 
 **NOTES:**
+- The application runs in development mode.
+- To disable unconfirmed user login change `enableUnconfirmedLogin` to `false` in `config/web.php` 
 - Yii won't create the database for you, this has to be done manually before you can access it.
 - Check and edit the other files in the `config/` directory to customize your application as required.
