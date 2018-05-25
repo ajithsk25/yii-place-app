@@ -12,6 +12,7 @@ use Yii;
  * @property int $country_id
  *
  * @property Countries $country
+ * @property Tours[] $tours
  */
 class Place extends \yii\db\ActiveRecord
 {
@@ -43,8 +44,8 @@ class Place extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Place',
-            'country_id' => 'Country',
+            'name' => 'Name',
+            'country_id' => 'Country ID',
         ];
     }
 
@@ -54,5 +55,13 @@ class Place extends \yii\db\ActiveRecord
     public function getCountry()
     {
         return $this->hasOne(Country::className(), ['id' => 'country_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTours()
+    {
+        return $this->hasMany(Tour::className(), ['place_id' => 'id']);
     }
 }

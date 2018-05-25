@@ -7,7 +7,6 @@ use Yii;
 use app\models\Place;
 use app\models\PlaceSearch;
 use yii\filters\AccessControl;
-use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -33,7 +32,7 @@ class PlaceController extends Controller
                 ],
             ],
             'verbs' => [
-                'class' => VerbFilter::class,
+                'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
                 ],
@@ -105,8 +104,11 @@ class PlaceController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
+        $countries = Country::find()->all();
+
         return $this->render('update', [
             'model' => $model,
+            'countries' => $countries,
         ]);
     }
 

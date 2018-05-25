@@ -13,6 +13,7 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+
     <?php
 
         $listData = \yii\helpers\ArrayHelper::map($countries, 'id', 'name');
