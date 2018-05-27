@@ -9,7 +9,7 @@ $this->title = 'My Yii Application';
     <div class="jumbotron">
         <h1>Hello there!</h1>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
+        <p class="lead">Yii Place search app</p>
 
     </div>
 
